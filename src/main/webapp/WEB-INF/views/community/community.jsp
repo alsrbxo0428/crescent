@@ -214,7 +214,7 @@
 				var str = "";
 				
 				if(pageMaker.prev) {
-					str += "<li><a href='" + (pageMaker.startPage - 1) + "'> << </a></li>";
+					str += "<li class='page-item'><a class='page-link' href='" + (pageMaker.startPage - 1) + "'> << </a></li>";
 				}
 				
 				for(var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++) {
@@ -223,7 +223,7 @@
 				}
 				
 				if(pageMaker.next) {
-					str += "<li><a href='" + (pageMaker.endPage + 1) + "'> >> </a></li>";
+					str += "<li class='page-item'><a class='page-link' href='" + (pageMaker.endPage + 1) + "'> >> </a></li>";
 				}
 				
 				$("#qnaPage").html(str);
@@ -233,7 +233,7 @@
 				var str = "";
 				
 				if(pageMaker.prev) {
-					str += "<li><a href='" + (pageMaker.startPage - 1) + "'> << </a></li>";
+					str += "<li class='page-item'><a class='page-link' href='" + (pageMaker.startPage - 1) + "'> << </a></li>";
 				}
 				
 				for(var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++) {
@@ -242,7 +242,7 @@
 				}
 				
 				if(pageMaker.next) {
-					str += "<li><a href='" + (pageMaker.endPage + 1) + "'> >> </a></li>";
+					str += "<li class='page-item'><a class='page-link' href='" + (pageMaker.endPage + 1) + "'> >> </a></li>";
 				}
 				
 				$("#reviewPage").html(str);

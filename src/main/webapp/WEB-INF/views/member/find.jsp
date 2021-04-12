@@ -21,7 +21,7 @@
             <ul class="nav nav-tabs nav-justified" id="nav">
                 <li class="nav-item"><a class="nav-link" href="/community/notice">공지사항</a></li>
                 <li class="nav-item"><a class="nav-link" href="/product/list">전체상품</a></li>
-                <li class="nav-item"><a class="nav-link" href="/community">커뮤니티</a></li>
+                <li class="nav-item"><a class="nav-link" href="/community/">커뮤니티</a></li>
                 <li class="nav-item">
                     <div class="input-group">
                         <input class="form-control" type="text" id="search">

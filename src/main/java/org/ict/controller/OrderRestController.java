@@ -75,7 +75,7 @@ public class OrderRestController {
 		return entity;
 	}//list
 	
-	@GetMapping(value="/listOne/{mno}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
+	@GetMapping(value="/listMno/{mno}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
 	public ResponseEntity<OrderListVO> listOne(@PathVariable("mno") int mno) {
 		ResponseEntity<OrderListVO> entity = null;
 		

@@ -37,53 +37,57 @@
     </nav><!-- nav end -->
     
     <div class="container mb-5" id="login">
-        <h1 class="my-5">내 정보 수정</h1>
-
-        <div class="row mb-3">
-            <button class="btn btn-primary" disabled>이름</button>
-            <input class="form-control" type="text" name="name" id="name" value="${login.name}" disabled>
-        </div><!--이름-->
-        <div class="row mb-3">
-            <button class="btn btn-primary" disabled>아이디</button>
-            <input class="form-control" type="text" name="id" id="id" value="${login.mid}" disabled>
-        </div><!--아이디-->
-        <div class="row mb-3">
-            <button class="btn btn-primary" disabled>비밀번호</button>
-            <input class="form-control" type="password" name="pwd" id="pwd" placeholder="PWD">
-        </div><!--비밀번호-->
-        <div class="row mb-3">
-            <button class="btn btn-primary" disabled>비빌번호 확인</button>
-            <input class="form-control" type="password" name="pwdChk" id="pwdChk" placeholder="PWD CHECK">
-        </div><!--비빌번호 확인-->
-        <div class="row text-left">
-            <button class="btn btn-primary" disabled>전화번호</button>
-        </div>
-        <div class="row mb-3">
-            <input class="form-control col-md-3" type="text" name="tel1" id="tel1" maxlength="3" placeholder="010" value="${login.tel1}">
-            <input class="form-control col-md-3 offset-md-1" type="text" name="tel2" id="tel2" maxlength="4" placeholder="1234" value="${login.tel2}">
-            <input class="form-control col-md-3 offset-md-1" type="text" name="tel3" id="tel3" maxlength="4" placeholder="5678" value="${login.tel3}">
-        </div><!--전화번호-->
-        <div class="row">
-            <button class="btn btn-primary" disabled>주소</button>
-        </div>
-        <div class="row mb-1">
-            <input class="form-control col-md-4" type="text" name="postcode" id="postcode" placeholder="POSTCODE" value="${login.postcode}">
-            <div class="col-md-4 offset-md-4 ml-2">
-                <button class="btn btn-warning" type="button" onclick="getPostcode();">우편번호검색</button>
-            </div>
-        </div><!--우편번호-->
-        <div class="row mb-1">
-            <input class="form-control" type="text" name="addr1" id="addr1" placeholder="ADDR" value="${login.addr1}">
-        </div><!--주소-->
-        <div class="row mb-3">
-            <input class="form-control" type="text" name="addr2" id="addr2" placeholder="ADDR DETAIL" value="${login.addr2}">
-        </div><!--상세주소-->
-        
-
-        <div class="text-center mt-4">
-            <button class="btn btn-success" type="button" id="modifyBtn"><h4 id="h4Btn">정보수정</h4></button>
-        </div>
-    </div>
+    	<div class="row">
+    		<div class="col-md-6 offset-md-3">
+		        <h1 class="my-5">내 정보 수정</h1>
+		
+		        <div class="row mb-3">
+		            <button class="btn btn-primary" disabled>이름</button>
+		            <input class="form-control" type="text" name="name" id="name" value="${login.name}" disabled>
+		        </div><!--이름-->
+		        <div class="row mb-3">
+		            <button class="btn btn-primary" disabled>아이디</button>
+		            <input class="form-control" type="text" name="id" id="id" value="${login.mid}" disabled>
+		        </div><!--아이디-->
+		        <div class="row mb-3">
+		            <button class="btn btn-primary" disabled>비밀번호</button>
+		            <input class="form-control" type="password" name="pwd" id="pwd" placeholder="PWD">
+		        </div><!--비밀번호-->
+		        <div class="row mb-3">
+		            <button class="btn btn-primary" disabled>비빌번호 확인</button>
+		            <input class="form-control" type="password" name="pwdChk" id="pwdChk" placeholder="PWD CHECK">
+		        </div><!--비빌번호 확인-->
+		        <div class="row text-left">
+		            <button class="btn btn-primary" disabled>전화번호</button>
+		        </div>
+		        <div class="row mb-3">
+		            <input class="form-control col-md-3" type="text" name="tel1" id="tel1" maxlength="3" placeholder="010" value="${login.tel1}">
+		            <input class="form-control col-md-3 offset-md-1" type="text" name="tel2" id="tel2" maxlength="4" placeholder="1234" value="${login.tel2}">
+		            <input class="form-control col-md-3 offset-md-1" type="text" name="tel3" id="tel3" maxlength="4" placeholder="5678" value="${login.tel3}">
+		        </div><!--전화번호-->
+		        <div class="row">
+		            <button class="btn btn-primary" disabled>주소</button>
+		        </div>
+		        <div class="row mb-1">
+		            <input class="form-control col-md-4" type="text" name="postcode" id="postcode" placeholder="POSTCODE" value="${login.postcode}">
+		            <div class="col-md-4 offset-md-4 ml-2">
+		                <button class="btn btn-warning" type="button" onclick="getPostcode();">우편번호검색</button>
+		            </div>
+		        </div><!--우편번호-->
+		        <div class="row mb-1">
+		            <input class="form-control" type="text" name="addr1" id="addr1" placeholder="ADDR" value="${login.addr1}">
+		        </div><!--주소-->
+		        <div class="row mb-3">
+		            <input class="form-control" type="text" name="addr2" id="addr2" placeholder="ADDR DETAIL" value="${login.addr2}">
+		        </div><!--상세주소-->
+		        
+		
+		        <div class="text-center mt-4">
+		            <button class="btn btn-success" type="button" id="modifyBtn"><h4 id="h4Btn">정보수정</h4></button>
+		        </div>
+    		</div>
+    	</div><!-- row -->
+    </div><!-- container -->
     
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
     

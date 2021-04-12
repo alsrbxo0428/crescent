@@ -8,8 +8,10 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.ict.domain.CartVO;
 import org.ict.domain.OrderListVO;
+import org.ict.mapper.CartMapper;
 import org.ict.mapper.OrderDetailMapper;
 import org.ict.mapper.OrderListMapper;
+import org.ict.mapper.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +26,10 @@ public class OrderListServiceImpl implements OrderListService {
 	private OrderListMapper mapper;
 	@Autowired
 	private OrderDetailMapper dtmapper;
+	@Autowired
+	private CartMapper ctmapper;
+	@Autowired
+	private ProductMapper pdmapper;
 	
 	//장바구니에서 선택된 상품 정보
 	@Override
@@ -38,7 +44,7 @@ public class OrderListServiceImpl implements OrderListService {
 	
 	@Transactional
 	@Override
-	public void insertOrder(OrderListVO vo) {
+	public void insertOrder(OrderListVO vo, int[] cnoArr) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyMMddhhmmss");
 		Date date = new Date();
 		String str = sdf.format(date) + vo.getMno();
@@ -49,7 +55,10 @@ public class OrderListServiceImpl implements OrderListService {
 		vo.getOrderDetail().forEach(detail -> {
 			detail.setOrderNumber(str);
 			dtmapper.insert(detail);
+			pdmapper.updateSales(detail.getPno());
 		});
+		
+		ctmapper.delete(cnoArr);
 	}
 	
 	@Transactional

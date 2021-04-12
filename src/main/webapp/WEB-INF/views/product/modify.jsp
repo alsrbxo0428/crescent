@@ -16,27 +16,9 @@
 <link rel="shortcut icon" type="image/x-icon" href="/resources/img/cm_icon.png">
 </head>
 <body>
-    <header><!--header-->
-        <div class="container">
-            <div class="row">
-                <a href="/crescent" class="col-md-1 offset-md-5"><img src="/resources/img/cm_logo.png" id="logo"></a>
-                <div class="col-md-4 offset-md-2 mt-5 text-right">
-                	<c:if test="${empty login}">
-                		<!-- 로그인O -->
-	                    <a href="/member/login">로그인/회원가입</a>
-	                    <a href="/cart" class="ml-3">장바구니</a><br>
-                	</c:if>
-                	<c:if test="${not empty login}">
-                		<!-- 로그인X -->
-                    	<a href="/member/logout">로그아웃</a>
-                        <a href="/cart" class="ml-3">장바구니</a>
-                        <a href="/member/mypage" class="ml-3">마이페이지</a><br>
-                	</c:if>
-                </div>
-            </div><!-- div row end -->
-        </div><!-- div container end -->
-    </header><!-- header end -->
-    
+<%@ include file="/WEB-INF/views/include/header.jsp" %>
+
+    <nav>
         <div class="container">
             <ul class="nav nav-tabs nav-justified" id="nav">
                 <li class="nav-item"><a class="nav-link" href="/community/notice">공지사항</a></li>
@@ -64,40 +46,41 @@
                     <hr>    
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 offset-md-4">
-                    <h3 class="text-left">판매가</h3>
-                    <input class="form-control" name="price" id="price" type="text" placeholder="숫자만 입력해주세요.">
-                    <hr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 offset-md-4">
-                    <div class="uploadDiv">
-							상품 이미지:<input type="file" name="pimg" id="pimg" class="uploadInput">
-						</div>
-						<button id="uploadBtn" type="button">Upload</button>
-				
-						<input type="hidden" id="pimgpath" name="pimgpath">
-                </div>
-            </div>
+	            <div class="row">
+	                <div class="col-md-4 offset-md-4">
+	                    <h3 class="text-left">판매가</h3>
+	                    <input class="form-control" name="price" id="price" type="text" placeholder="숫자만 입력해주세요.">
+	                    <hr>
+	                </div>
+	            </div>
+	            <div class="row">
+	                <div class="col-md-4 offset-md-4">
+	                    <div class="uploadDiv">
+								상품 이미지:<input type="file" name="pimg" id="pimg" class="uploadInput">
+							</div>
+							<button id="uploadBtn" type="button">Upload</button>
+					
+							<input type="hidden" id="pimgpath" name="pimgpath">
+	                </div>
+	            </div>
             <div class="row">
                 <div class="col-md-4 offset-md-4">
                     <div class="uploadDiv2">
 							상품 상세이미지:<input type="file" name="pdimg" id="pdimg" class="uploadInput">
 							<button id="uploadBtn2" type="button">Upload2</button>
 							<input type="hidden" id="pdimgpath" name="pdimgpath">
-                </div>
-            </div>
-             <input type="hidden" id="del1">
-             <input type="hidden" id="del2"><!--파일 삭제를 위한 히든타입 -->
+	                </div>
+	            </div>
+				<input type="hidden" id="del1">
+				<input type="hidden" id="del2"><!--파일 삭제를 위한 히든타입 -->
            
-            <div class="row text-right">
-                <div class="col-md-4 offset-md-4">
-                    <button type="button" class="btn btn-success" id="modBtn"><h4>수정하기</h4></button>
-                </div>
-            </div>
-        </div>
+	            <div class="row text-right">
+	                <div class="col-md-4 offset-md-4">
+	                    <button type="button" class="btn btn-success" id="modBtn"><h4>수정하기</h4></button>
+	                </div>
+	            </div>
+        	</div>
+    	</div><!-- jumbotron -->
     </div><!-- container -->
     
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>

@@ -46,5 +46,10 @@ public class ProductServiceImpl implements ProductService {
 	public List<ProductVO> getAll() {
 			return mapper.getList();
 	}
+
+	@Override
+	public void updateSales(int pno) {
+		mapper.updateSales(pno);
+	}
 	
 }//class

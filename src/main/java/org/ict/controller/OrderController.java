@@ -35,9 +35,9 @@ public class OrderController {
 	}
 	
 	@PostMapping("/paying")
-	public String order(OrderListVO vo) {
+	public String order(OrderListVO vo, int[] cnoArr) {
 		
-		service.insertOrder(vo);
+		service.insertOrder(vo, cnoArr);
 		
 		return "/order/complite";
 	}

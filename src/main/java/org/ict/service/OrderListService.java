@@ -12,7 +12,7 @@ public interface OrderListService {
 	public List<CartVO> total(@Param("arr") int[] arr);
 	//장바구니에서 선택된 상품 정보
 	
-	public void insertOrder(OrderListVO vo);
+	public void insertOrder(OrderListVO vo, int[] cnoArr);
 	
 	public List<OrderListVO> selectAll(int mno);
 	

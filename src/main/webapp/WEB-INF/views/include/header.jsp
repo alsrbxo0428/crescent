@@ -3,7 +3,7 @@
 <header><!--header-->
 	<div class="container">
 		<div class="row">
-			<a href="/crescent" class="col-md-1 offset-md-5"><img src="/resources/img/cm_logo.png" id="logo"></a>
+			<a href="/crescent" class="col-md-2 offset-md-4"><img src="/resources/img/cm_logo.png" id="logo"></a>
 			<div class="col-md-4 offset-md-2 mt-5 text-right">
 				<c:if test="${empty login}">
 					<!-- 로그인O -->

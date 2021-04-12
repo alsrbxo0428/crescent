@@ -169,7 +169,7 @@
 			function getOrder() {
 				var str ="";
 				
-				$.getJSON("/order/listOne/" + mno, function(data){
+				$.getJSON("/order/listMno/" + mno, function(data){
 		    		
 		    		var timestamp = data.orderdate;
 					var date = new Date(timestamp);
@@ -190,7 +190,7 @@
 					} else if(data.ship == "3") {
 						str += "배송완료</h4></div>";
 					}
-						
+					
 					ordernumber += data.orderNumber;
 					
 					$("#orderNumber").html(str);

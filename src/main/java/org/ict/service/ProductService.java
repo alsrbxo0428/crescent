@@ -21,4 +21,5 @@ public interface ProductService {
 	
 	public List<ProductVO> getAll();
 	
+	public void updateSales(int pno);
 }

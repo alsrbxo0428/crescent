@@ -20,4 +20,6 @@ public interface ProductMapper {
 	public List<ProductVO> selectRecom();
 	
 	public List<ProductVO> getList();
+	
+	public void updateSales(int pno);
 }

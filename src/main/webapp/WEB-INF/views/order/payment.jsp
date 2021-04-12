@@ -117,9 +117,9 @@
 				<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
 					<input type="hidden" name="cmd" value="_xclick" /><!-- 구매요청 -->
 					<input type="hidden" name="business" value="alsrbxotest@test.com" /><!-- 상점계정 -->
-					<input type="hidden" id="amount" name="amount" value="" /><!-- 금액 -->
-					<input type="hidden" id="item_number" name="item_number" value=""><!-- 상품코드 -->
-					<input type="hidden" id="item_name" name="item_name" value="" /><!-- 상품이름 -->
+					<input type="hidden" id="price" name="amount" value="" /><!-- 금액 -->
+					<input type="hidden" id="pno" name="item_number" value=""><!-- 상품코드 -->
+					<input type="hidden" id="pname" name="item_name" value="" /><!-- 상품이름 -->
 					<input type="hidden" name="return" value="http://localhost:8181/order/complite" /><!-- 결제후 이동되는 페이지 -->
 					<input type="hidden" name="notify_url" value="http://localhost:8181/order/complite" /><!-- IPN메세지 받을 페이지 -->
 					<input type="hidden" name="cancel_return" value="http://localhost:8181/order/complite" /><!-- 결제 취소 페이지 -->
@@ -169,11 +169,12 @@
 						
                         formStr += "<input type='hidden' name='orderDetail[" + i + "].pno' id='pno" + i + "' value='" + cart.pno + "'>"
                         		+ "<input type='hidden' name='orderDetail[" + i + "].ocnt' id='ocnt" + i + "' value='" + cart.cnt + "'>"
-                        		+ "<input type='hidden' name='orderDetail[" + i + "].result' id='result" + i + "' value='" + cart.result + "'>";
+                        		+ "<input type='hidden' name='orderDetail[" + i + "].result' id='result" + i + "' value='" + cart.result + "'>"
+                        		+ "<input type='hidden' name='cnoArr' value='" + arr[i] + "'?>";
                         
-                        $("#amount").val(this.pname);
-                        $("#item_number").val(this.pno);
-                        $("#item_name").val((this.result/1000));
+                        $("#pname").val(this.pname);
+                        $("#pno").val(this.pno);
+                        $("#price").val((this.result/1000));
 					});//each
 					
 					$("#list").html(str);

@@ -40,7 +40,7 @@
  	<select id="selectAll" resultType="org.ict.domain.OrderListVO">
  		SELECT ordernumber, mno, name, postcode, addr1, addr2, tel1, tel2, tel3, total, ship, orderdate
  		FROM orderlist where mno = #{mno}
- 		ORDER BY ordernumber DESC
+ 		ORDER BY orderdate DESC
  	</select>
  	
  	<select id="selectMno" resultType="org.ict.domain.OrderListVO">

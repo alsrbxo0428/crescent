@@ -42,7 +42,10 @@
  	
  	<select id="getList" resultType="org.ict.domain.ProductVO">
  		select * from product
- 		
  	</select>
+ 	
+ 	<update id="updateSales">
+ 		update product set salescnt = salescnt + 1 where pno = #{pno}
+ 	</update>
  	
  </mapper>

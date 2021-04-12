@@ -16,26 +16,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="/resources/img/cm_icon.png">
 </head>
 <body>
-    <header><!--header-->
-        <div class="container">
-            <div class="row">
-                <a href="/crescent" class="col-md-1 offset-md-5"><img src="/resources/img/cm_logo.png" id="logo"></a>
-                <div class="col-md-4 offset-md-2 mt-5 text-right">
-                	<c:if test="${empty login}">
-                		<!-- 로그인O -->
-	                    <a href="/member/login">로그인/회원가입</a>
-	                    <a href="/cart" class="ml-3">장바구니</a><br>
-                	</c:if>
-                	<c:if test="${not empty login}">
-                		<!-- 로그인X -->
-                    	<a href="/member/logout">로그아웃</a>
-                        <a href="/cart" class="ml-3">장바구니</a>
-                        <a href="/member/mypage" class="ml-3">마이페이지</a><br>
-                	</c:if>
-                </div><!-- div col end -->
-            </div><!-- div row end -->
-        </div><!-- div container end -->
-    </header><!-- header end -->
+<%@ include file="/WEB-INF/views/include/header.jsp" %>
         
     <nav>
         <div class="container">
