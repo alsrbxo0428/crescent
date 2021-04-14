@@ -42,4 +42,8 @@
  		ORDER BY cno ASC
  	</delete>
  	
+ 	<delete id="deleteAll">
+ 		delete from cart where pno = #{pno}
+ 	</delete>
+ 	
  </mapper>

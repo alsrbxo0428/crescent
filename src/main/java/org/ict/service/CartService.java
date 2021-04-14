@@ -14,4 +14,6 @@ public interface CartService {
 	public int checkCart(CartVO vo);
 	
 	public void remove(int[] cnoArr);
+	
+	public void removeAll(int pno);
 }

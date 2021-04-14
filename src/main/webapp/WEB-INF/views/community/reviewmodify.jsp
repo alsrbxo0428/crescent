@@ -4,6 +4,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<style type="text/css">
+
+#imgUl {
+	display: flex;
+	flex-flow: row;
+}
+
+#imgUl li {
+	list-style: none;
+}
+
+#imgUl li img {
+	width: 200px;
+}
+</style>
+
 <meta charset="UTF-8">
 <!-- bootstrap.min.css -->
 <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
@@ -73,11 +90,13 @@
                 <button type="button" class="btn btn-success" id="modBtn"><h4 id="h4Btn">리뷰 수정</h4></button>
             </div>
         </div><!-- div row end -->
-       
-	    <div class="uploadResult">
-			<ul id="imgLi">
-				<!-- 업로드된 파일이 들어갈 자리 -->
-			</ul>
+		
+		<div class="row">
+		    <div class="uploadResult">
+				<ul id="imgUl">
+					<!-- 업로드된 파일이 들어갈 자리 -->
+				</ul>
+			</div>
 		</div>
     </div><!-- div container end -->
     
@@ -92,10 +111,21 @@
     	$(document).ready(function() {
 			var rno = $("#rno").val();
 			
+			function getProductList() {
+				$.getJSON("/product/all", function(data) {
+					var str = "";
+					
+					$(data).each(function(){
+						
+						str += "<option value='" + this.pno + "' >" + this.pname + "</option>";
+					});
+					$("#productlist").html(str);
+				});//getJSON
+			}//getProductList
+			getProductList();
+			
 			function getDetail() {
 				$.getJSON("/review/" + rno, function(data) {
-					
-					console.log(data);
 					
 					$("#rtitle").attr("value", data.rtitle);
 					$("#rcontent").html(data.rcontent);
@@ -103,23 +133,6 @@
 				});//getJSON
 			}//getDetail
 			getDetail();
-			
-			function getProductList() {
-				$.getJSON("/product/all", function(data) {
-					var str = "";
-					
-					$(data).each(function(){
-
-						console.log(this);
-						
-						str += "<option value='"
-							+ this.pno + "' >"
-							+ this.pname + "</option>";
-					});
-					$("#productlist").html(str);
-				});//getJSON
-			}//getProductList
-			getProductList();
 			
 			var regex = new RegExp("(.*?)\.(jpg|png)$");
 			var maxSize = 5242880;
@@ -137,11 +150,26 @@
 				return true;
 			}//check
 			
+			function getImage() {
+				$.getJSON("/review/img/" + rno, function(data) {
+					var str = "";
+					
+					$(data).each(function(i, obj) {
+						var fileCallPath = encodeURIComponent(obj.uploadPath + "/" + obj.uuid + "_" + obj.fileName);
+						
+						str += "<li data-path='" + obj.uploadPath
+						+ "' data-uuid='" + obj.uuid
+						+ "' data-filename='" + obj.fileName + "'><img src='/review/display?fileName=" + fileCallPath + "'></li>"
+					});
+					$("#imgUl").html(str);
+				});//getJSON
+			}//getImage
+			getImage();
+			
 			$('#uploadBtn').on("click", function(e){
 				var formData = new FormData();
 				var inputFile = $("input[name='uploadFile']");
     			var files = inputFile[0].files;
-				
 				
     			for(var i = 0; i < files.length; i++) {
 					if(!check(files[i].name, files[i].size)) {
@@ -177,7 +205,7 @@
 					
 					str += "<li data-path='" + obj.uploadPath
 						+ "' data-uuid='" + obj.uuid
-						+ "' data-filename='" + obj.fileName + "'></li>";
+						+ "' data-filename='" + obj.fileName + "'><img src='/review/display?fileName=" + fileCallPath + "'></li>";
 				});//each
 				uploadresult.append(str);
 			}//uploadedFile

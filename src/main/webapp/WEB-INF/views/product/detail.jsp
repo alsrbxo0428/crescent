@@ -346,38 +346,51 @@
 	    	}//getOne
 	    	getOne();
 	    	
-	    	$("#delBtn").on("click" , function() {
-	    		var del1 = $('#del1').val();
-				var del2 = $('#del2').val();
-				
-				var targetLi = $(this).closest("li");
-				
+	    	$("#delBtn").on("click", function() {
 				$.ajax({
-					url: '/product/deleteFile',
-					data: {del1: del1, del2:del2},
-					dataType: 'text',
-					type:'POST',
-					success: function(result){
-						targetLi.remove();
+					type : 'patch',
+					url : '/product/change/' + pno,
+	    			contentType : "application/json",
+					dataType : 'text',
+					data : {pno : pno},
+					success : function(result) {
+						alert("판매불가 상품으로 전환되었습니다.");
 					}
 				});//ajax
+			});//delBtn
+	    	
+// 	    	$("#delBtn").on("click" , function() {
+// 	    		var del1 = $('#del1').val();
+// 				var del2 = $('#del2').val();
 				
-	    		$.ajax({
-	    			type:'delete',
-	    			url:'/product/' + pno,
-	    			header : {
-						"Content-Type" : "application/json",
-						"X-HTTP-Method-Override" : "DELETE"
-					},
-					dataType : 'text',
-					success: function(result) {
-						if(result === 'SUCCESS') {
-							alert("삭제 되었습니다.");
-							window.location.href = "/product/list";
-						}
-					}
-	    		});//ajax
-	    	});//delBtn
+// 				var targetLi = $(this).closest("li");
+				
+// 				$.ajax({
+// 					url: '/product/deleteFile',
+// 					data: {del1: del1, del2:del2},
+// 					dataType: 'text',
+// 					type:'POST',
+// 					success: function(result){
+// 						targetLi.remove();
+// 					}
+// 				});//ajax
+				
+// 	    		$.ajax({
+// 	    			type:'delete',
+// 	    			url:'/product/' + pno,
+// 	    			header : {
+// 						"Content-Type" : "application/json",
+// 						"X-HTTP-Method-Override" : "DELETE"
+// 					},
+// 					dataType : 'text',
+// 					success: function(result) {
+// 						if(result === 'SUCCESS') {
+// 							alert("삭제 되었습니다.");
+// 							window.location.href = "/product/list";
+// 						}
+// 					}
+// 	    		});//ajax
+// 	    	});//delBtn
 	    	
 	    });//ready
     </script>

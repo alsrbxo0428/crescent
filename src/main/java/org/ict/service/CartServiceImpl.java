@@ -36,5 +36,10 @@ public class CartServiceImpl implements CartService {
 	public List<CartVO> total(int mno) {
 		return mapper.total(mno);
 	}
+
+	@Override
+	public void removeAll(int pno) {
+		mapper.deleteAll(pno);
+	}
 	
 }

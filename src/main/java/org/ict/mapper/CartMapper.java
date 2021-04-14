@@ -16,4 +16,6 @@ public interface CartMapper {
 	public int check(CartVO vo);
 	
 	public void delete(@Param("cnoArr") int[] cnoArr);
+	
+	public void deleteAll(int pno);
 }
