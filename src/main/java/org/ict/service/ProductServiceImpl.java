@@ -5,13 +5,17 @@ import java.util.List;
 import org.ict.domain.ProductVO;
 import org.ict.domain.QnaVO;
 import org.ict.domain.ReviewVO;
+import org.ict.mapper.CartMapper;
 import org.ict.mapper.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 @Service
 public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductMapper mapper;
+	@Autowired
+	private CartMapper ctmapper;
 	
 	@Override
 	public void create(ProductVO vo) {
@@ -33,11 +37,6 @@ public class ProductServiceImpl implements ProductService {
 		return mapper.select(pno);
 	}
 
-	@Override
-	public void remove(int pno) {
-		mapper.delete(pno);
-	}
-
 	public List<ProductVO> recom() {
 		return mapper.selectRecom();
 	}
@@ -51,5 +50,17 @@ public class ProductServiceImpl implements ProductService {
 	public void updateSales(int pno) {
 		mapper.updateSales(pno);
 	}
+
+	@Transactional
+	@Override
+	public void change(int pno) {
+		mapper.change(pno);
+		ctmapper.deleteAll(pno);
+	}
+	
+//	@Override
+//	public void remove(int pno) {
+//		mapper.delete(pno);
+//	}
 	
 }//class
