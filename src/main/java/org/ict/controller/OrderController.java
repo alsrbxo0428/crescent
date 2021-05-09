@@ -1,5 +1,7 @@
 package org.ict.controller;
 
+import java.util.Arrays;
+
 import org.ict.domain.OrderListVO;
 import org.ict.service.OrderListService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,18 +22,27 @@ public class OrderController {
 	@Autowired
 	private OrderListService service;
 	
-	@GetMapping("/payment")
-	public void payment() {
-		
-	}
+//	@GetMapping("/payment")
+//	public void payment() {
+//		
+//	}
+	
+//	@PostMapping("/payment")
+//	public String payment(int[] cnoArr, RedirectAttributes rttr) {
+//		
+//		rttr.addFlashAttribute("cnoArr", cnoArr);
+//		rttr.addFlashAttribute("length", cnoArr.length);
+//		
+//		return "redirect:/order/payment";
+//	}
 	
 	@PostMapping("/payment")
-	public String payment(int[] cnoArr, RedirectAttributes rttr) {
+	public String payment(int[] cnoArr, Model model) {
 		
-		rttr.addFlashAttribute("cnoArr", cnoArr);
-		rttr.addFlashAttribute("length", cnoArr.length);
+		model.addAttribute("cnoArr", cnoArr);
+		model.addAttribute("length", cnoArr.length);
 		
-		return "redirect:/order/payment";
+		return "/order/payment";
 	}
 	
 	@PostMapping("/paying")

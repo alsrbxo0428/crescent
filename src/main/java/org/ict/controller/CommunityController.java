@@ -72,7 +72,7 @@ public class CommunityController {
 	}
 	
 	@PostMapping("/remove")
-	public String remove(int nno, RedirectAttributes rttr, Model model) {
+	public String remove(int nno, RedirectAttributes rttr) {
 		
 		service.remove(nno);
 		rttr.addAttribute("nno", nno);

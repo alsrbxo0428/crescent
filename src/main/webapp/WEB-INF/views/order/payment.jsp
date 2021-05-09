@@ -136,9 +136,9 @@
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
     
     <!-- 장바구니에서 선택된 상품 목록 -->
-    <input type="hidden" id="length" value="${length}">
+    <input type="text" id="length" value="${length}">
     <c:forEach var="i" begin="0" end="${length}">
-		<input type=hidden id="cnoArr${i}" value="${cnoArr[i]}">
+		<input type="text" id="cnoArr${i}" value="${cnoArr[i]}">
 	</c:forEach>
     <!-- 장바구니에서 선택된 상품 목록 -->
     
@@ -156,6 +156,33 @@
 				arr[i] = $("#cnoArr"+i).val();
 			}
 			
+//     		function getCartList() {//장바구니에서 선택된 목록 불러오기
+// 				$.getJSON("/order/cartlist/" + arr, function(data) {
+// 					var str = "";
+// 					var formStr = "";
+					
+// 					$(data).each(function(i, cart) {
+// 						str += "<tr><td id='cartPayTd'><img src='/product/display?fileName=" + cart.pimg + "' id='cartPayImg'></td>"
+// 							+ "<td id='cartPayTd'><h4><strong>" + cart.pname + "</strong></h4></td>"
+// 							+ "<td id='cartPayTd'><h4><strong>" + cart.cnt + "</strong></h4></td>"
+// 							+ "<td id='cartPayTd'><h4><strong>" + cart.result + "</strong></h4></td></tr>";
+						
+//                         formStr += "<input type='hidden' name='orderDetail[" + i + "].pno' id='pno" + i + "' value='" + cart.pno + "'>"
+//                         		+ "<input type='hidden' name='orderDetail[" + i + "].ocnt' id='ocnt" + i + "' value='" + cart.cnt + "'>"
+//                         		+ "<input type='hidden' name='orderDetail[" + i + "].result' id='result" + i + "' value='" + cart.result + "'>"
+//                         		+ "<input type='hidden' name='cnoArr' value='" + arr[i] + "'>";
+                        
+//                         $("#pname").val(this.pname);
+//                         $("#pno").val(this.pno);
+//                         $("#price").val((this.result/1000));
+// 					});//each
+					
+// 					$("#list").html(str);
+// 					$(".form").append(formStr);
+// 				});//getJSON
+// 			}//getCartList
+//     		getCartList();
+			
     		function getCartList() {//장바구니에서 선택된 목록 불러오기
 				$.getJSON("/order/cartlist/" + arr, function(data) {
 					var str = "";
@@ -170,7 +197,7 @@
                         formStr += "<input type='hidden' name='orderDetail[" + i + "].pno' id='pno" + i + "' value='" + cart.pno + "'>"
                         		+ "<input type='hidden' name='orderDetail[" + i + "].ocnt' id='ocnt" + i + "' value='" + cart.cnt + "'>"
                         		+ "<input type='hidden' name='orderDetail[" + i + "].result' id='result" + i + "' value='" + cart.result + "'>"
-                        		+ "<input type='hidden' name='cnoArr' value='" + arr[i] + "'?>";
+                        		+ "<input type='hidden' name='cnoArr' value='" + arr[i] + "'>";
                         
                         $("#pname").val(this.pname);
                         $("#pno").val(this.pno);

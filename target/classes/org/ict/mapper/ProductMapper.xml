@@ -25,7 +25,7 @@
 	
  	<select id="select" resultType="org.ict.domain.ProductVO">
  		select * from product where pno = #{pno}
- 		where psts = 0
+ 		and psts = 0
  	</select>
  	
  	<select id="selectRecom" resultType="org.ict.domain.ProductVO">

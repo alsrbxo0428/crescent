@@ -79,6 +79,11 @@
                 <button type="button" class="btn btn-info" id="orderBtn"><h5 id="h5Btn">주문하기</h5></button>
             </div>
         </div><!-- div row end -->
+        
+        <form action="/order/payment" method="post" id="goPay">
+        	<!-- 선택된 상품정보가 들어올곳 -->
+        </form>
+        
     </div><!-- div container end-->
     
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
@@ -117,6 +122,8 @@
 			}//getTotal
 			getTotal();
 			
+    		const checkBoxes = document.getElementsByName('cnoArr');
+			
 			$("#checkAll").on("click", function() {
 				checkBoxes.forEach((checkBox) => {
 					checkBox.checked = true;
@@ -128,8 +135,6 @@
 					checkBox.checked = false;
 				})
 			});//checkBox
-			
-    		const checkBoxes = document.getElementsByName('cnoArr');
 			
 			$("#selDelBtn").on("click", function() {
 				let cnoArr = new Array();
@@ -163,31 +168,53 @@
 				});//ajax
 			});//selDelBtn
 			
+// 			$("#orderBtn").on("click", function() {
+// 				let cnoArr = new Array();
+				
+// 				checkBoxes.forEach((checkBox) => {
+// 					if(checkBox.checked === true) {
+// 						cnoArr.push(checkBox.value);
+// 					}
+// 				});//forEach
+				
+// 				console.log(cnoArr);
+				
+// 				if(cnoArr.length === 0){
+// 					alert("결제할 상품을 선택해주세요.");
+// 					return;
+// 				}
+				
+// 				$.ajaxSettings.traditional = true;
+// 				$.ajax({
+// 					type : 'POST',
+// 					url : '/order/payment',
+// 					data : {cnoArr : cnoArr},
+// 					success : function() {}
+// 				});//ajax
+// 				location.href = "/order/payment";
+				
+// 			});//orderBtn
+
 			$("#orderBtn").on("click", function() {
-				let cnoArr = new Array();
+				console.log("onclick");
+				let i = 0;
+				let str = "";
 				
 				checkBoxes.forEach((checkBox) => {
 					if(checkBox.checked === true) {
-						cnoArr.push(checkBox.value);
+						str += "<input type='hidden' name='cnoArr' value='" + checkBox.value + "'>";
+						i++;
 					}
 				});//forEach
 				
-				console.log(cnoArr);
-				
-				if(cnoArr.length === 0){
+				if(str === ("")) {
 					alert("결제할 상품을 선택해주세요.");
 					return;
 				}
 				
-				$.ajaxSettings.traditional = true;
-				$.ajax({
-					type : 'POST',
-					url : '/order/payment',
-					data : {cnoArr : cnoArr},
-					success : function() {}
-				});//ajax
-				location.href = "/order/payment";
+				$("#goPay").append(str);
 				
+				$("#goPay").submit();
 			});//orderBtn
 			
 		});//ready
