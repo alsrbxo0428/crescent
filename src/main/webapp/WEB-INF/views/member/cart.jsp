@@ -196,7 +196,6 @@
 // 			});//orderBtn
 
 			$("#orderBtn").on("click", function() {
-				console.log("onclick");
 				let i = 0;
 				let str = "";
 				
