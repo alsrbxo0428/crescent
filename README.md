@@ -1,6 +1,19 @@
 # crescent moon
 
-본 프로젝트는 ICT인재개발원에서 진행한 웹앱개발 국비교육과정 1차 프로젝트입니다.<br>
+- 캔들 쇼핑몰 제작 프로젝트
+
+## 사용기술
+
+- JAVA
+- Spring Framework
+- Mysql
+- HTML5/CSS
+- Jquery
+- bootstrap
+- tomcat
+- mybatis
+- lombok
+- github 등
 
 #### 진행기간
 
